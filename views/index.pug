@@ -1,0 +1,21 @@
+extends layout
+block content
+
+
+
+    h1 Welcome #{name} to HomePage
+    - const location = "Wah Cantt";
+    h2 #{location}
+    p.container(width="100", height="100", style="background-color:red;") #{content}
+
+    p. 
+        This is for
+        Multiline Text
+ 
+    +link("/about","About Page")
+
+
+
+
+
+//- For converting pug to HTML through CLI: pug -w ./views/ -o ./html -P

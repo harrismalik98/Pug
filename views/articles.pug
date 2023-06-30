@@ -1,0 +1,21 @@
+extends layout
+
+block content
+
+    h1 #{title}
+
+    if(articles)
+        each article in articles
+            .article
+                //- h2= article.title
+                //- h3= article.author
+                //- p= article.body
+                h2 #{article.title}
+                h3 #{article.author}
+                p #{article.body}
+
+    else
+        h1 No Articles
+
+//- After writing "h2= article.title" we can't write anything after this on same line.
+    each article, i in articles  => i tells the index of our articles array of objects.

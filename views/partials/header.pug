@@ -1,0 +1,11 @@
+mixin link(href, text)
+  a(href=href)= text
+
+//- In Pug, mixins are a way to create reusable pieces of code that can be included in different parts of a Pug template.
+//- I am including mixin here so i can use it everywhere(any pug file). So we can say that mixin is a function in a pug.  
+
+doctype html
+html
+    head
+        title Pug Template Engine
+        link(rel="stylesheet", href="./css/style.css")

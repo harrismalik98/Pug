@@ -1,0 +1,85 @@
+mixin info(user)
+    p #{user.name}
+    p #{user.loggedIn}
+    p #{user.lastLogin}
+
+doctype html
+html 
+    head 
+        title Pug Practice
+
+        //- style. 
+        //-     p {
+        //-         color:white;
+        //-         background-color:black;
+        //-     }
+
+    body
+        //- Inlince CSS
+        h1(style="text-align:center ; text-transform:uppercase;") Pug Practice
+
+        //- Multiline
+        p. 
+            This is for
+            Multiline Text
+
+        ul
+            li This is my Item#1
+            li This is my Item#2
+
+        //- If we don't write any tag by default it creates div tag
+        .divclass This is my div class
+
+        //- Giving CSS Styles
+        p#myid This is my CSS ID's
+        p.class This is my CSS class
+
+        //- Javascript Expression
+        input(type="text" name="name" data=`${5>2 ? "Ok" : "Not Okay"}`)
+
+        //- Adding classes through array
+        - const myclasses = ["class1", "class2", "class3"];
+        div(class = myclasses)
+
+        //- Adding styles through array
+        - const myStyles = {"color": "red", "background-color":"blue"}
+        div(style=myStyles)
+
+        - const myAttribute = {"src":"photo.png", "alt":"My Profile Photo"}
+        img&attributes(myAttribute)
+
+        
+        //- "For each" and "For" Loop
+        - const arrObject = [{id:1, name:"Muhammad Harris"}, {id:2, name: "Muhammad Ali"}]
+        each n in arrObject
+            p #{n.id}
+            p #{n.name}
+            hr
+
+        for n in ["1","2","3"]
+            p #{n}
+
+
+        //- If else Conditions
+        - const user ={name:"Muhammad Harris", loggedIn: false, lastLogin:11}
+        if(user.loggedIn)
+            p Welcome #{user.name}
+        else
+            p Please Login
+
+
+        //- Switch Statement
+        - const order="Pending"
+
+        case order
+            when "Pending"
+                p Pending
+            when "In-Transit"
+                p In-Transit
+            when "Completed"
+                p Completed
+            default
+                p Please use correct value
+
+        //- Mixin
+        +info(user)
